@@ -33,6 +33,7 @@ Subject::~Subject(){
 //setters
 
 void Subject::password_setter(const char *nPassword){
+	delete[] password;
 	password = new char[strlen(nPassword)+1];
 	strcpy(password, nPassword);
 }
