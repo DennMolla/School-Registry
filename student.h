@@ -38,13 +38,9 @@ public:
 
     // setters
     void amSetter(const char* nAM);
-   // void nameSetter(std::string nName);
-  //  void genderSetter(bool nGender);
     void semesterSetter(unsigned int nSem);
 
     // getters
-  //  std::string getGender() const;
-   // std::string getName() const;
     unsigned int getSemester() const;
     const char* amGetter() const;
 };
