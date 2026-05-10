@@ -17,7 +17,7 @@ Subject::Subject(const char *nPassword, unsigned int nSemester){
 }
 
 Subject::Subject(const Subject& other){
-	delete[] password;
+	
 	password = new char[strlen(other.password)+1];
 	strcpy(password, other.password);
 	description = other.description;
