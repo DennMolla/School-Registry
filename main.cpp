@@ -9,7 +9,7 @@ int main() {
 	
 	Teacher t1("Acelot", "password123", 0, 1);
 
-	//subject constructor (name, description, 
+	//subject constructor (name, description, semester, course leader(WIP)
 	Subject subject("adawd0","ada", 1 , 1);
 	s1.AddCourse(subject);
 
