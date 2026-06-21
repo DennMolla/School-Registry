@@ -1,10 +1,16 @@
 #include "person.h"
+#include "teacher.h"
 
-Person::Person(std::string nName, bool nGender): name(nName), gender(nGender){};
+#include <iostream>
+#include <vector>
 
-Person::Person(const Person& other){
-	name = other.name;
-	gender = other.gender;
+Person::Person(std::string nName, bool nGender) : name(nName), gender(nGender) {};
+
+void Person::print(std::ostream& ss)const {};
+
+Person::Person(const Person& other) {
+    name = other.name;
+    gender = other.gender;
 }
 
 Person& Person::operator=(const Person& p) {
@@ -21,8 +27,8 @@ Person& Person::operator-() {
 }
 
 
-void Person::nameSetter(std::string nName){
-	name = nName;
+void Person::nameSetter(std::string nName) {
+    name = nName;
 }
 
 void Person::genderSetter(bool nGender) {
@@ -35,7 +41,19 @@ std::string Person::getName() const {
 
 std::string Person::getGender() const {
     if (!gender)
-        return "Man";
+        return "Άνδρας";
     else
-        return "Woman";
+        return "Γυναίκα";
+}
+
+void Person::AddCourse(const Subject& course) {
+    this->courses.push_back(course);
+ //   std::cout << "Το μάθημα προστέθηκε με επιτυχία!" << std::endl;
+}
+
+void Person::GetCourse() {
+    for (Subject& n : courses) {
+        std::cout << "Μάθημα: " << n.description_getter() << ", Επικεφαλής Μαθήματος: " << n.course_leader_getter()->getName()
+            << ", Εξάμηνο: " << n.semester_getter() << std::endl;
+    }
 }
