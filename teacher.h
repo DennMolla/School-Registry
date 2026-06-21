@@ -10,29 +10,31 @@
 
 class Subject;
 
-class Teacher:public Person{
-	private:
-		char *password;
-		int profession;
-		std::vector<Subject*> courses;
-	
-	public:
-		//constructors
-		Teacher(const Teacher& other);
-		Teacher(std::string name, const char* password);
-		Teacher(std::string name, const char* password, bool gender, int profession);
-		Teacher& operator=(const Teacher& s);
-		~Teacher();
+class Teacher :public Person {
+private:
+	char* password;
+	unsigned int profession;
+//	std::vector<Subject*> courses;
 
-		
-		//getters & setters
-		void password_setter(const char* nPass);
-		void profession_setter(int nProf);
+public:
+	//constructors
+	Teacher(const Teacher& other);
+	Teacher(std::string name, const char* password);
+	Teacher(std::string name, const char* password, bool gender,int profession);
+	Teacher& operator=(const Teacher& s);
+	~Teacher();
 
-		const char* password_getter() const;
-		std::string profession_getter()const;
+	void print(std::ostream& ss)const override;
 
-		
+	//getters & setters
+	void password_setter(const char* nPass);
+	void profession_setter(int nProf);
+
+	const char* password_getter() const;
+	std::string profession_getter()const;
+	int profession_id()const;
+
+
 };
 
 #endif
