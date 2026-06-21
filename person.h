@@ -2,25 +2,37 @@
 #define person_h
 
 #include <string>
+#include <vector>
+#include "subject.h"
 
-class Person{
-	private:
-		std::string name;
-		bool gender;
-	public:
-		Person(const Person& other);
-		Person(std::string nName, bool nGender);
-		Person& operator=(const Person&);
-		Person& operator-();
+//class Subject;
+
+class Person {
+private:
 	
-		void nameSetter(std::string nName);
-		void genderSetter(bool nGender);
+	std::string name;
+	bool gender;
+	std::vector<Subject> courses;
 
-		std::string getGender() const;
-		std::string getName() const;
+public:
+	void AddCourse(const Subject& course);
+	void GetCourse();
 
-		virtual ~Person() = default;
-		
+	Person(const Person& other);
+	Person(std::string nName, bool nGender);
+	Person& operator=(const Person&);
+	Person& operator-();
+	virtual void print(std::ostream& ss)const = 0;
+
+	void nameSetter(std::string nName);
+	void genderSetter(bool nGender);
+
+
+	std::string getGender() const;
+	std::string getName() const;
+
+	virtual ~Person() = default;
+
 };
 
 #endif
